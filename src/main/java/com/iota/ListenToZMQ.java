@@ -9,8 +9,10 @@ public class ListenToZMQ {
         ZMQ.Socket socket = context.socket(ZMQ.SUB);
 
         socket.connect("tcp://zmq.devnet.iota.org:5556");
-        socket.subscribe("tx"); //Subscribe to all new transactions, including trytes.
-        socket.subscribe("sn"); //Subscribe to all confirmed transactions.
+        // Subscribe to all new transactions
+        socket.subscribe("tx");
+        // Subscribe to all confirmed transactions
+        socket.subscribe("sn"); 
 
         while(true) {
             byte[] reply = socket.recv(0);

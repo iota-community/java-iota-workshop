@@ -1,14 +1,7 @@
 package com.iota;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.iota.jota.IotaAPI;
-import org.iota.jota.dto.response.GetBalancesAndFormatResponse;
 import org.iota.jota.error.ArgumentException;
-import org.iota.jota.utils.StopWatch;
-
-/// https://github.com/iotaledger/iota-java/blob/dev/docs/iota-java/getBalanceAndFormat.md
 
 class CheckBalance {
     public static void main(String[] args) throws ArgumentException {
@@ -21,16 +14,12 @@ class CheckBalance {
             .build();
 
         // The addresses (with checksum) whose balance you want to check
-        List<String> addresses = new ArrayList<String>();
-        addresses.add("LRAZGXSV9FPCOO9OIUYLRLHBUJSBCCDBZC9UBPNMHQAGGI9BODPVIBMVCIKNCFVWWSALEBQMCFINHIVV9D9LYEQXSA");
-
-        // Define the security level of the address
-        int securityLevel = 2;
+        String address= "LRAZGXSV9FPCOO9OIUYLRLHBUJSBCCDBZC9UBPNMHQAGGI9BODPVIBMVCIKNCFVWWSALEBQMCFINHIVV9D9LYEQXSA";
 
         // Get the confirmed balance of the address
         try {
-            GetBalancesAndFormatResponse response = api.getBalanceAndFormat(addresses, null, 100, 0, new StopWatch(), securityLevel);
-            System.out.printf("Your balance is: %s", response.getTotalBalance());
+            long balance = api.getBalance(100, address);
+            System.out.printf("Your balance is: %s", balance);
         } catch (ArgumentException e) { 
             // Handle error
             e.printStackTrace(); 

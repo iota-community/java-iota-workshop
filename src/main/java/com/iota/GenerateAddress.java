@@ -5,8 +5,6 @@ import org.iota.jota.builder.AddressRequest;
 import org.iota.jota.dto.response.GetNewAddressResponse;
 import org.iota.jota.error.ArgumentException;
 
-/// https://github.com/iotaledger/iota-java/blob/dev/docs/iota-java/generateNewAddresses.md
-
 class GenerateAddress {
 public static void main(String[] args) throws ArgumentException {
 
@@ -27,10 +25,10 @@ public static void main(String[] args) throws ArgumentException {
         // If this address is spent, this method returns the next unspent address with the lowest index
         try { 
             GetNewAddressResponse response = api.generateNewAddresses(new AddressRequest.Builder(mySeed, securityLevel).amount(1).checksum(true).build());
-            System.out.printf("Your new address is %s", response.getAddresses());
+            System.out.printf("Your address is %s", response.getAddresses());
         } catch (ArgumentException e) { 
             // Handle error
             e.printStackTrace(); 
-         }
+        }
     }
 }

@@ -11,8 +11,6 @@ import org.iota.jota.error.ArgumentException;
 import org.iota.jota.model.Transaction;
 import org.iota.jota.utils.TrytesConverter;
 
-/// https://github.com/iotaledger/iota-java/blob/dev/docs/iota-java/getBalanceAndFormat.md
-
 class ReadData {
     public static void main(String[] args)
             throws ArgumentException, JsonParseException, JsonMappingException, IOException {
@@ -24,10 +22,10 @@ class ReadData {
             .port(443)
             .build();
 
-        // The addresses (with checksum) whose balance you want to check
+        // Define the bundle hash whose transactions you want to get
         String bundleHash = "HGRGBSAQSKSBCDCX9IFUKDWYTJDKEMHAKWH9LJ9JCBL9EWHLSZQZYQXDZKVICNZKWKKUNTD9OSLVVEGFA";
 
-        // Get the confirmed balance of the address
+        // Get the transaction objects in the bundle
         try { 
             List<Transaction> response = api.findTransactionObjectsByBundle(bundleHash);
             System.out.println(TrytesConverter.trytesToAscii(response.get(0).getSignatureFragments().substring(0,2186)));
