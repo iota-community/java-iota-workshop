@@ -14,7 +14,11 @@ class CheckBalance {
     public static void main(String[] args) throws ArgumentException {
 
         // Connect to a node
-        IotaAPI api = new IotaAPI.Builder().protocol("https").host("nodes.devnet.thetangle.org").port(443).build();
+        IotaAPI api = new IotaAPI.Builder()
+            .protocol("https")
+            .host("nodes.devnet.thetangle.org")
+            .port(443)
+            .build();
 
         // The addresses (with checksum) whose balance you want to check
         List<String> addresses = new ArrayList<String>();
