@@ -56,6 +56,10 @@ In this example, you request the balance of IOTA tokens on addresses from a node
 
 In this example, you send a micropayment of 1 IOTA by sending a transfer bundle to a node.
 
+### ListenToZMQ
+
+In this example, you listen to the Tangle for recent transactions by subscribing to the [zero message queue (ZMQ)](https://zeromq.org/) on nodes that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md).
+
 ## Contribution
 
 Pull requests are welcome on master :smile:
