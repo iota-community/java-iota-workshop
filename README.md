@@ -15,19 +15,19 @@ To start playing with these examples run the following commands:
 ### Linux and macOS
 
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/JakeSCahill/java-iota-workshop.git
+cd java-iota-workshop
 mvn clean install
-mvn exec:java -Dexec.mainClass="com.iota.CreateAccount"
+mvn exec:java -Dexec.mainClass="com.iota.HelloWorld"
 ```
 
 ### Windows
 
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/JakeSCahill/java-iota-workshop.git
+cd java-iota-workshop
 mvn clean install
-mvn exec:java -D"exec.mainClass"="com.iota.CreateAccount"
+mvn exec:java -D"exec.mainClass"="com.iota.HelloWorld"
 ```
 
 You should receive a message, including the statistics of an IOTA node. This means you can explore and run the other examples.
