@@ -1,47 +1,67 @@
-# Go IOTA Workshop
+# IOTA Workshop
 
-Some simple examples to get you started on developing with IOTA using Go.
+Simple examples to help a developer work through interacting with the IOTA network.
 
+## Prerequisites
 
-### Getting started
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-Go (1.10+) is required to run these examples.
+You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](https://docs.iota.org/docs/client-libraries/0.1/getting-started/java-quickstart), and follow the instructions for installing the library with Maven.
+
+## Getting started
 
 To start playing with these examples run the following commands:
 
+### Linux and macOS
+
 ```bash
-git clone https://github.com/iota-community/go-iota-workshop.git
-cd go-iota-workshop
-go mod download
-go run iota_go_helloworld/main.go
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -Dexec.mainClass="com.iota.CreateAccount"
 ```
 
-You should receive a message including the statistics of an IOTA node. This means you can explore and run the other examples.
-It is highly recommended to change the seeds and addresses used in these examples to make sure you start with a clean slate.
+### Windows
 
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -D"exec.mainClass"="com.iota.CreateAccount"
+```
 
-### Examples included
+You should receive a message, including the statistics of an IOTA node. This means you can explore and run the other examples.
 
-Here are the examples included:
+## Examples included
 
- - 1: `iota_go_helloworld`
- - 2: `iota_go_send_tx`
- - 3: `iota_go_receive_tx`
- - 4: `iota_go_create_address`
- - 5: `iota_go_check_balance`
- - 6: `iota_go_send_value`
- - 7: `iota_go_send_data`
- - 8: `iota_go_receive_data`
- - 9: `iota_go_zmq`
+Here are the other examples included:
 
+### SendData
 
-### Work to be done:
+In this example, you send a "hello world" message in a zero-value [transaction](https://docs.iota.org/docs/getting-started/0.1/transactions/transactions). These transactions are useful for storing messages on the [Tangle](https://docs.iota.org/docs/getting-started/0.1/network/the-tangle) without having to send any [IOTA tokens](https://docs.iota.org/docs/getting-started/0.1/clients/token).
 
- - Add MAM examples
- - Add more complex application examples
- - Refactor by someone with more Go experience :)
+### ReadData
 
+In this example, you get your transaction from the Tangle by connecting to a node and asking it to filter them by their [bundle](https://docs.iota.org/docs/getting-started/0.1/transactions/bundles) hash. Then, you decode the message in the transaction and print it to the console.
 
-#### Contribution
+### GenerateAddress
 
-PRs are welcome on `master`
+In this example, you learn how to generate a new [address](https://docs.iota.org/docs/getting-started/0.1/clients/addresses) for a [seed](https://docs.iota.org/docs/getting-started/0.1/clients/seeds) with a given [security level](https://docs.iota.org/docs/getting-started/0.1/clients/security-levels).
+
+### CheckBalance
+
+In this example, you request the balance of IOTA tokens on addresses from a node.
+
+### SendTokens
+
+In this example, you send a micropayment of 1 IOTA by sending a transfer bundle to a node.
+
+## Contribution
+
+Pull requests are welcome on master :smile:
+
+### Work to be done
+
+- Add ZMQ examples
+- Add complex application examples
+
