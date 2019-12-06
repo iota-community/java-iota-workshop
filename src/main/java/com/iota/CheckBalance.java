@@ -23,6 +23,6 @@ class CheckBalance {
         } catch (ArgumentException e) { 
             // Handle error
             e.printStackTrace(); 
-         }
+        }
     }
 }

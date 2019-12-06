@@ -3,17 +3,14 @@ package com.iota;
 import java.io.IOException;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-
 import org.iota.jota.IotaAPI;
 import org.iota.jota.error.ArgumentException;
+import org.iota.jota.model.Bundle;
 import org.iota.jota.model.Transaction;
-import org.iota.jota.utils.TrytesConverter;
 
 class ReadData {
     public static void main(String[] args)
-            throws ArgumentException, JsonParseException, JsonMappingException, IOException {
+            throws ArgumentException, IOException {
 
         // Connect to a node
         IotaAPI api = new IotaAPI.Builder()
@@ -28,7 +25,10 @@ class ReadData {
         // Get the transaction objects in the bundle
         try { 
             List<Transaction> response = api.findTransactionObjectsByBundle(bundleHash);
-            System.out.println(TrytesConverter.trytesToAscii(response.get(0).getSignatureFragments().substring(0,2186)));
+            Bundle bundle = new Bundle(response);
+            
+            // A message can be spread over multiple transactions, thus we need to read them all from a bundle
+            System.out.println(bundle.getMessage());
          } catch (ArgumentException e) { 
             // Handle error
             e.printStackTrace(); 

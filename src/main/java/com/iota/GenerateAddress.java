@@ -22,10 +22,11 @@ public static void main(String[] args) throws ArgumentException {
         int securityLevel = 2;
 
         // Generate an unspent address with security level 2
-        // If this address is spent, this method returns the next unspent address with the lowest index
+        // This method starts from index 0, or the one provided, until the requested amount is reached
+        // Although this method is almost fool proof, to have it 100% correct we suggest using the account module
         try { 
             GetNewAddressResponse response = api.generateNewAddresses(new AddressRequest.Builder(mySeed, securityLevel).amount(1).checksum(true).build());
-            System.out.printf("Your address is %s", response.getAddresses());
+            System.out.printf("Your address is %s", response.getAddresses().get(0));
         } catch (ArgumentException e) { 
             // Handle error
             e.printStackTrace(); 
