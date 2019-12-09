@@ -51,6 +51,7 @@ class SendData {
         // Create a bundle from the transfers list
         // and send the transaction to the node
         try { 
+            // Since we don't send any value, we can skip validation of inputs
             SendTransferResponse response = api.sendTransfer(myRandomSeed, securityLevel, depth, minimumWeightMagnitude, transfers, null, null, false, false, null);
             System.out.println(response.getTransactions());
         } catch (ArgumentException e) { 
