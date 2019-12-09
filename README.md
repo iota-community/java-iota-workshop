@@ -1,6 +1,6 @@
 # IOTA Workshop
 
-Simple examples to help a developer work through interacting with the IOTA network.
+Simple examples to help a developer interact with an IOTA network.
 
 ## Prerequisites
 
@@ -66,6 +66,5 @@ Pull requests are welcome on master :smile:
 
 ### Work to be done
 
-- Add ZMQ examples
 - Add complex application examples
 
