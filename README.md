@@ -66,6 +66,5 @@ Pull requests are welcome on master :smile:
 
 ### Work to be done
 
-- Add ZMQ examples
 - Add complex application examples
 
