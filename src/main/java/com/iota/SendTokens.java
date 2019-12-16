@@ -42,7 +42,6 @@ class SendTokens {
         // and send the transactions to the node
         try {
             System.out.printf("Sending 1 i to %s", address);
-            // Normally you want to validate if the receiver has spent from the address, but we leave this off for this tutorial
             SendTransferResponse response = api.sendTransfer(mySeed, securityLevel, depth, minimumWeightMagnitude, transfers, null, null, true, false, null);
             System.out.println(response.getTransactions());
         } catch (ArgumentException e) { 
